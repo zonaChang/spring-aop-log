@@ -31,6 +31,11 @@ public class Check {
 	}
 	
 	@Test
+	public void checkBranch() {
+		
+	}
+	
+	@Test
 	public void testOther() {
 		String namex = "name---";
 		 Field[] fields = namex.getClass().getDeclaredFields();
