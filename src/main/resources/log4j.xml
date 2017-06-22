@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+	<appender name="businessLevelLog" class="org.apache.log4j.RollingFileAppender">
+	    <param name="Encoding" value="UTF-8"/>
+		<!-- 指定日志输出文件,如果不是绝对路径，则以项目的根目录为当前目录 -->
+		<param name="file" value="businessLog.log" />
+		<!-- true：在原有日志的基础上追加内容， false：新日志覆盖原有的日志 -->
+		<param name="append" value="false" />
+		<!-- MaxBackupIndex:查询资料解释为日志备份的数量， 暂时还未发现实际的作用 -->
+		<param name="MaxBackupIndex" value="10" />
+		<!-- 打印日志的格式 -->
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%p %d{yyy MM dd HH:mm:ss} ---> %m%n" />
+		</layout>
+		<filter class="com.cez.study.spring.log.BussinessFilter">  
+            <param name="LevelMax" value="BUSINESSLEVELLOG" />
+			<param name="LevelMin" value="BUSINESSLEVELLOG" />
+            <param name="AcceptOnMatch" value="true" />  
+        </filter>
+	</appender>
+	
+	<appender name="file" class="org.apache.log4j.RollingFileAppender">
+	    <param name="Encoding" value="UTF-8"/>
+		<!-- 指定日志输出文件,如果不是绝对路径，则以项目的根目录为当前目录 -->
+		<param name="file" value="default.log" />
+		<!-- true：在原有日志的基础上追加内容， false：新日志覆盖原有的日志 -->
+		<param name="append" value="false" />
+		<!-- MaxBackupIndex:查询资料解释为日志备份的数量， 暂时还未发现实际的作用 -->
+		<param name="MaxBackupIndex" value="10" />
+		<!-- 打印日志的格式 -->
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%p %d{yyy MM dd HH:mm:ss} (%c:%L) ---> %m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">  
+<!--             <param name="LevelMax" value="info" /> -->
+			<param name="LevelMin" value="info" />
+            <param name="AcceptOnMatch" value="true" />  
+        </filter>
+	</appender>
+
+	
+	<!-- root是必须存在的节点 -->
+	<root>
+		<!-- error>warn>BUSINESSLEVELLOG>info>debug -->
+        <appender-ref ref="file"/>
+        <appender-ref ref="businessLevelLog"/>
+    </root>
+</log4j:configuration>
