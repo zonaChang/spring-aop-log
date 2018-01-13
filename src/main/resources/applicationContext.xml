@@ -16,9 +16,11 @@
     
     <context:component-scan base-package="com.cez.study.spring" />
     <mvc:annotation-driven />
-    
+    <mvc:default-servlet-handler/>
     <aop:config>
     	<aop:pointcut id="controllerPointcut" expression="execution(* com.cez.study.spring.controller..*.*(..))" />
+    	
+    	<!-- expression:中可以使用&&（与）、 || （或）、!（非）等逻辑运算符。 由于xml中&是特殊字符所以要转义成&amp; -->
     	<aop:pointcut id="commonPointcut" 
     	expression="execution(* com.cez.study.spring..*.*(..)) &amp;&amp; !execution(* com.cez.study.spring.controller..*.*(..))" />
     	<aop:aspect ref="logAop">

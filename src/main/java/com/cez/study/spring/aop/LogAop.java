@@ -1,15 +1,7 @@
 package com.cez.study.spring.aop;
 
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
-
-import lombok.extern.log4j.Log4j;
-
-import org.apache.log4j.Logger;
-import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.stereotype.Component;
@@ -34,7 +26,7 @@ public class LogAop {
 	 * @throws Throwable
 	 */
     public Object controllerAroundMethod(ProceedingJoinPoint point) throws Throwable {
-    	
+//    	StringBuffer reString = request.getRequestURL();
     	String target = point.getSignature().getDeclaringTypeName() + "." + point.getSignature().getName();
 		Object[] args = point.getArgs();
 		String[] paramsName =  ((MethodSignature) point.getSignature()).getParameterNames();

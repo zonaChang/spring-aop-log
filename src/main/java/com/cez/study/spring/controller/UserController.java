@@ -6,6 +6,7 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.cez.study.spring.bean.UserBean;
 import com.cez.study.spring.service.UserService;
@@ -16,11 +17,13 @@ import com.cez.study.spring.service.UserService;
  * @createTime: 2017年6月21日 下午4:51:30
  */
 @Controller
+@RequestMapping("/aa/")
 public class UserController {
 	
 	@Resource
 	private UserService userService;
 
+	@RequestMapping("aa")
 	public Map<String , Object> queryUserById(String id, UserBean bean, Map<String, Integer> map) {
 		
 		Map<String , Object> retMap = new HashMap<>();

@@ -13,7 +13,8 @@
 		<layout class="org.apache.log4j.PatternLayout">
 			<param name="ConversionPattern" value="%p %d{yyy MM dd HH:mm:ss} ---> %m%n" />
 		</layout>
-		<filter class="com.cez.study.spring.log.BussinessFilter">  
+		
+		<filter class="com.cez.study.spring.log.LogFilter">  
             <param name="LevelMax" value="BUSINESSLEVELLOG" />
 			<param name="LevelMin" value="BUSINESSLEVELLOG" />
             <param name="AcceptOnMatch" value="true" />  

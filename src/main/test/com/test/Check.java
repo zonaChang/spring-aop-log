@@ -32,7 +32,7 @@ public class Check {
 	
 	@Test
 	public void checkBranch() {
-		
+		System.out.println("Check.checkBranch()");
 	}
 	
 	@Test
